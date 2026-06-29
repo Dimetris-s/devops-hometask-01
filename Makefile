@@ -73,3 +73,6 @@ e2e-install: ## Один раз: ставит npm-зависимости фро�
 
 e2e: ## Прогнать Playwright-тесты против поднятого стека
 	set -a && . ./.env.development.e2e && cd front && npm run e2e
+
+e2e-deployed:
+	set -a && . ./.env.production.e2e && cd front && npm run e2e
