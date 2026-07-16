@@ -26,8 +26,8 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ vars.DOCKER_USER }} --password-stdin
       - name: Build and Push
         env:
-          IMAGE_LATEST: ${{ vars.DOCKER_USER }}/${{ matrix.service }}:latest
-          IMAGE_SHA: ${{ vars.DOCKER_USER }}/${{ matrix.service }}:sha-${{ github.sha }}
+          IMAGE_LATEST: ${{ vars.DOCKER_USER }}/todo-${{ matrix.service }}:latest
+          IMAGE_SHA: ${{ vars.DOCKER_USER }}/todo-${{ matrix.service }}:sha-${{ github.sha }}
         run: |
           docker build ${{ matrix.build-args }} -t $IMAGE_LATEST -t $IMAGE_SHA ${{ matrix.service }}
           docker push $IMAGE_LATEST
