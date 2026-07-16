@@ -48,7 +48,7 @@ jobs:
             docker compose --env-file .env.development.compose up -d --no-deps back front
   verify:
     needs: deploy
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
